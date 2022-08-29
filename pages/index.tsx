@@ -1,6 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
-import { useId } from "react";
+import Product from "../components/Products";
+import { Gallery } from "../styles/Gallary";
+
 import { useQuery } from "urql";
 import { PRODUCT_QUERY } from "../lib/query";
 
@@ -20,22 +21,14 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Hallo Next</h1>
-        {products &&
-          products.map((product: any) => {
-            return (
-              <div key={Math.random()} style={{ maxWidth: "500px" }}>
-                <h2>{product.attributes.title}</h2>
-                <p>{product.attributes.description}</p>
-                <Image
-                  src={
-                    product.attributes.image.data.attributes.formats.small.url
-                  }
-                  layout="fill"
-                />
-              </div>
-            );
-          })}
+        <Gallery>
+          {products &&
+            products.map((product: any) => {
+              return (
+                <Product product={product} key={product.attributes.slug} />
+              );
+            })}
+        </Gallery>
       </main>
     </div>
   );
