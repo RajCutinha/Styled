@@ -8,9 +8,11 @@ import {
   Buy,
 } from "../../styles/ProductDetails";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
+import { useShopContext } from "../../lib/context";
 
 const ProductDetails = (): JSX.Element => {
   const { query } = useRouter();
+  const { qty, increaseQty, decreaseQty, onAdd } = useShopContext();
 
   const [res] = useQuery({
     query: GET_PRODUCT_QUERY,
@@ -33,15 +35,17 @@ const ProductDetails = (): JSX.Element => {
         <p>{description}</p>
         <Quantity>
           <span>Quantity</span>
-          <button>
+          <button onClick={increaseQty}>
             <AiFillPlusCircle />
           </button>
-          <p>0</p>
-          <button>
+          <p>{qty}</p>
+          <button onClick={decreaseQty}>
             <AiFillMinusCircle />
           </button>
         </Quantity>
-        <Buy>Add to cart</Buy>
+        <Buy onClick={() => onAdd(data?.products?.data?.[0]?.attributes, qty)}>
+          Add to cart
+        </Buy>
       </ProductInfo>
     </DetailsStyle>
   );
