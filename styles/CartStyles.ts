@@ -14,7 +14,7 @@ export const CartWrapper = styled.div`
 `;
 
 export const CartStyle = styled.div`
-  width: 40%;
+  width: 35%;
   background-color: #f1f1f1;
   padding: 2em 5em;
   overflow-y: scroll;
@@ -26,4 +26,46 @@ export const Card = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 2rem;
+  margin: 2rem 0;
+
+  img {
+    width: 8rem;
+  }
 `;
+
+export const CardInfo = styled.div`
+  width: 50%;
+
+  div {
+    display: flex;
+    flex-direction: space-between;
+  }
+`;
+
+export const EmptyStyle = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  h1 {
+    font-size: 2rem;
+    padding: 2rem;
+  }
+
+  svg {
+    font-size: 10rem;
+    color: var(--secondary);
+  }
+`;
+
+export const Quantity = styled.div``;

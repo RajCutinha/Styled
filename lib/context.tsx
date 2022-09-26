@@ -6,7 +6,7 @@ interface ShopContextProps {
   increaseQty: () => void;
   decreaseQty: () => void;
   showCart: boolean;
-  setShowCart: () => void;
+  setShowCart: (a: true | false) => void;
   cartItems: any[];
   setCartItems: () => void;
   onAdd: (product: any, qty: number) => void;
